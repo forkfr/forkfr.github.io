@@ -191,7 +191,7 @@ body {
 }
 
 .hero-scene::before {
-    background-image: linear-gradient(180deg, rgba(0,0,0,.08) 8%, rgba(0,0,0,.38) 44%, #050505 100%), url("background4.png");
+    background-image: linear-gradient(180deg, rgba(0,0,0,.08) 8%, rgba(0,0,0,.38) 44%, #050505 100%), url("backgrounds/background4.png");
     background-position: center, center 32%;
     background-size: cover;
 }
@@ -241,7 +241,7 @@ body {
     border: 12px solid rgba(235,235,235,.72);
     outline: 1px solid rgba(255,255,255,.5);
     outline-offset: 5px;
-    background-image: linear-gradient(rgba(0,0,0,.83), rgba(0,0,0,.9)), url("Background5.png");
+    background-image: linear-gradient(rgba(0,0,0,.83), rgba(0,0,0,.9)), url("backgrounds/Background5.png");
     background-position: center;
     background-size: cover;
     box-shadow: 0 18px 48px rgba(0,0,0,.85), inset 0 0 35px #000;
@@ -319,7 +319,7 @@ body {
     margin-top: -1px;
     border-top: 1px solid rgba(255,255,255,.25);
     border-bottom: 1px solid rgba(255,255,255,.25);
-    background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url("Background5.png") center 48% / cover;
+    background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)), url("backgrounds/Background5.png") center 48% / cover;
 }
 
 .details-grid {
@@ -360,14 +360,14 @@ body {
 }
 
 .about-panel {
-    background-image: url("background.png");
+    background-image: url("backgrounds/background.png");
 }
 
 .links-panel {
     min-height: 580px;
     margin-top: 28px;
     justify-content: flex-start;
-    background-image: url("background2.png");
+    background-image: url("backgrounds/background2.png");
 }
 
 .detail-panel h2 {
@@ -451,7 +451,7 @@ body {
     align-items: end;
     justify-content: center;
     padding: 24px;
-    background: linear-gradient(rgba(0,0,0,.5), #050505), url("Background6.png") center 56% / cover;
+    background: linear-gradient(rgba(0,0,0,.5), #050505), url("backgrounds/Background6.png") center 56% / cover;
     color: #aaa;
     font-size: .8rem;
     letter-spacing: .14em;
