@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fork | Bio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=VT323&family=Inconsolata:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body">
+    <canvas id="dustCanvas" aria-hidden="true"></canvas>
+    <main>
+        <section class="hero-scene">
+            <div class="hero-content">
+                <div class="avatar-frame">
+                    <img id="avatarImg" src="avatar" alt="Fork's avatar">
+                </div>
+
+                <article class="profile-card">
+                    <h1 id="displayName">Fork <span>| he/him</span></h1>
+                    <p id="displayAge" class="profile-age">13 (11)</p>
+                    <p id="displayTagline" class="profile-tagline">hi i'm fork</p>
+                </article>
+
+                <nav class="social-links" aria-label="Social links">
+                    <a id="linkTwitter" class="social-link social-link-primary" href="https://x.com/forkrye" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                        <span id="linkTwitterText">New twitter acc</span>
+                    </a>
+                </nav>
+            </div>
+        </section>
+
+        <div class="lace-divider" aria-hidden="true"></div>
+
+        <section class="details-grid" aria-label="Profile details and links">
+            <article class="detail-panel about-panel">
+                <h2>About</h2>
+                <p id="displayBio" class="panel-tags">ovt · music · val · goat · fork</p>
+                <nav class="channel-links" aria-label="Other profiles">
+                    <a class="channel-link" href="https://www.youtube.com/@forkrye" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a class="channel-link" href="https://steamcommunity.com/id/forkrye/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-steam" aria-hidden="true"></i>
+                        <span>Steam</span>
+                    </a>
+                    <a class="channel-link" href="https://discord.com/users/1455669828890263679" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord" aria-hidden="true"></i>
+                        <span>Discord</span>
+                    </a>
+                </nav>
+            </article>
+
+            <article class="detail-panel links-panel">
+                <h2>Spotify</h2>
+                <iframe
+                    class="spotify-player"
+                    src="https://open.spotify.com/embed/playlist/7Fk10yw8IkwTDRyuTBfwfF?utm_source=generator&amp;theme=0"
+                    title="Fork's Spotify playlist"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer"><span>Fork</span></footer>
+
+    <div id="editModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-zinc-900 border border-white/30 rounded-lg p-6 w-full max-w-md shadow-2xl relative">
+            <div class="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                <h3 class="font-cinzel text-lg font-bold text-white">Customize Profile</h3>
+                <button id="closeEditBtn" class="text-gray-400 hover:text-white text-lg">&times;</button>
+            </div>
+
+            <div class="space-y-3 font-mono text-xs text-gray-300">
+                <div>
+                    <label class="block mb-1 text-gray-400">Name</label>
+                    <input type="text" id="inputName" value="Fork" class="w-full bg-black border border-white/20 rounded px-2.5 py-1.5 text-white focus:outline-none focus:border-white">
+                </div>
+                <div>
+                    <label class="block mb-1 text-gray-400">Pronouns</label>
+                    <input type="text" id="inputPronouns" value="he/him" class="w-full bg-black border border-white/20 rounded px-2.5 py-1.5 text-white focus:outline-none focus:border-white">
+                </div>
+                <div>
+                    <label class="block mb-1 text-gray-400">Age Display</label>
+                    <input type="text" id="inputAge" value="13 (11)" class="w-full bg-black border border-white/20 rounded px-2.5 py-1.5 text-white focus:outline-none focus:border-white">
+                </div>
+                <div>
+                    <label class="block mb-1 text-gray-400">Tagline / Main Quote</label>
+                    <input type="text" id="inputTagline" value="boy failure, unironically doomed 4 ever" class="w-full bg-black border border-white/20 rounded px-2.5 py-1.5 text-white focus:outline-none focus:border-white">
+                </div>
+                <div>
+                    <label class="block mb-1 text-gray-400">Bio Subtext</label>
+                    <textarea id="inputBio" rows="2" class="w-full bg-black border border-white/20 rounded px-2.5 py-1.5 text-white focus:outline-none focus:border-white">sleeping in the shadows • monochrome enthusiast • dark ambient music addict</textarea>
+                </div>
+                <div>
+                    <label class="block mb-1 text-gray-400">Avatar Image URL</label>
+                    <input type="text" id="inputAvatar" value="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=400&auto=format&fit=crop" class="w-full bg-black border border-white/20 rounded px-2.5 py-1.5 text-white focus:outline-none focus:border-white">
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-end space-x-2">
+                <button id="cancelEditBtn" class="px-3 py-1.5 rounded border border-white/20 text-xs font-mono text-gray-400 hover:text-white">Cancel</button>
+                <button id="saveEditBtn" class="px-4 py-1.5 rounded bg-white text-black text-xs font-mono font-bold hover:bg-gray-200">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="ambientAudio" loop src="https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3"></audio>
+
+    <script>
+        window.onload = function() {
+            const canvas = document.getElementById('dustCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = canvas.height + Math.random() * 20;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedY = Math.random() * 0.8 + 0.2;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.7 + 0.2;
+                }
+
+                update() {
+                    this.y -= this.speedY;
+                    this.x += this.speedX;
+                    if (this.y < -10) {
+                        this.reset();
+                    }
+                }
+
+                draw() {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 45; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+
+            animateParticles();
+
+            const editModal = document.getElementById('editModal');
+            const closeEditBtn = document.getElementById('closeEditBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const saveEditBtn = document.getElementById('saveEditBtn');
+
+            closeEditBtn.addEventListener('click', () => editModal.classList.add('hidden'));
+            cancelEditBtn.addEventListener('click', () => editModal.classList.add('hidden'));
+
+            saveEditBtn.addEventListener('click', () => {
+                const name = document.getElementById('inputName').value;
+                const pronouns = document.getElementById('inputPronouns').value;
+                const age = document.getElementById('inputAge').value;
+                const tagline = document.getElementById('inputTagline').value;
+                const bio = document.getElementById('inputBio').value;
+                const avatar = document.getElementById('inputAvatar').value;
+
+                document.getElementById('displayName').innerHTML = `${name} <span class="text-gray-400 font-normal text-lg sm:text-xl">| ${pronouns}</span>`;
+                document.getElementById('displayAge').innerText = age;
+                document.getElementById('displayTagline').innerText = tagline;
+                document.getElementById('displayBio').innerText = bio;
+                if(avatar.trim() !== '') {
+                    document.getElementById('avatarImg').src = avatar;
+                }
+
+                editModal.classList.add('hidden');
+            });
+        };
+    </script>
+</body>
+</html>
